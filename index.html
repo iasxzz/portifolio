@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iasmim Santiago - Portfólio Criativo 🎨</title>
     <meta name="description" content="Designer gráfica especializada em branding e identidade visual. De pixels a projetos reais desde 2015.">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:wght@400;600;700;900&family=Righteous&display=swap" rel="stylesheet">
-    
+
     <style>
+        @font-face {
+            font-family: "Extenda 40 Hecto";
+            src: url("https://cdn.jsdelivr.net/gh/iasxzz/portifolio@main/fonts/extenda-40-hecto.ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -38,12 +46,11 @@
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="%23FFE66D"/></svg>'), auto;
         }
 
-        /* CUSTOM CURSOR */
         a, button, .clickable {
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12" fill="%23FF6B35"/></svg>'), pointer !important;
         }
 
-        /* LOADING SCREEN COM ANIMAÇÃO LOUCA */
+        /* LOADING SCREEN */
         #loading-screen {
             position: fixed;
             top: 0;
@@ -107,14 +114,11 @@
             left: 0;
             bottom: 0;
             right: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
             animation: shimmer 1s infinite;
         }
 
-        @keyframes loadProgress {
-            to { width: 100%; }
-        }
-
+        @keyframes loadProgress { to { width: 100%; } }
         @keyframes shimmer {
             0% { transform: translateX(-100%); }
             100% { transform: translateX(100%); }
@@ -136,26 +140,11 @@
             75% { transform: translate(-50px, 100px) rotate(270deg); }
         }
 
-        .star { 
-            font-size: 3rem; 
-            animation-delay: 0s;
-            top: 10%;
-            left: 10%;
-        }
-        .circle { 
-            font-size: 4rem; 
-            animation-delay: 3s;
-            top: 70%;
-            right: 10%;
-        }
-        .triangle { 
-            font-size: 3.5rem; 
-            animation-delay: 6s;
-            bottom: 20%;
-            left: 80%;
-        }
+        .star { font-size: 3rem; animation-delay: 0s; top: 10%; left: 10%; }
+        .circle { font-size: 4rem; animation-delay: 3s; top: 70%; right: 10%; }
+        .triangle { font-size: 3.5rem; animation-delay: 6s; bottom: 20%; left: 80%; }
 
-        /* NAVIGATION MEGA ESTILOSA */
+        /* NAVIGATION */
         nav {
             position: fixed;
             top: 0;
@@ -166,7 +155,7 @@
             z-index: 1000;
             transform: translateY(-100%);
             transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
 
         nav.visible {
@@ -175,14 +164,8 @@
         }
 
         @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         nav ul {
@@ -225,7 +208,7 @@
             animation: spin 0.5s linear;
         }
 
-        /* BACK TO TOP SUPER ANIMADO */
+        /* BACK TO TOP */
         #back-to-top {
             position: fixed;
             bottom: 30px;
@@ -242,7 +225,7 @@
             visibility: hidden;
             transition: all 0.3s;
             z-index: 999;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             animation: pulse 2s infinite;
         }
 
@@ -253,7 +236,7 @@
 
         #back-to-top:hover {
             transform: translateY(-10px) rotate(360deg);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
         }
 
         @keyframes pulse {
@@ -261,16 +244,16 @@
             50% { transform: scale(1.05); }
         }
 
-        /* HERO SECTION INSANA */
+        /* HERO SECTION OTIMIZADA */
         .hero {
-            min-height: 100vh;
-            background: url('1.png');
+            min-height: 85vh;
+            background: var(--turquoise);
             position: relative;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: 2rem 5% 4rem;
         }
 
         .hero-bg {
@@ -279,7 +262,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 radial-gradient(circle at 20% 50%, rgba(255, 230, 109, 0.3) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(139, 30, 63, 0.2) 0%, transparent 50%),
                 linear-gradient(45deg, transparent 30%, rgba(255, 107, 53, 0.1) 50%, transparent 70%);
@@ -291,7 +274,6 @@
             50% { transform: scale(1.1) rotate(5deg); }
         }
 
-        /* ELEMENTOS DECORATIVOS */
         .decoration {
             position: absolute;
             opacity: 0.8;
@@ -299,10 +281,10 @@
         }
 
         .stamp {
-            top: 10%;
-            left: 5%;
-            width: 150px;
-            height: 150px;
+            top: 5%;
+            left: 3%;
+            width: 120px;
+            height: 120px;
             background: var(--yellow);
             border: 8px dashed var(--dark);
             border-radius: 15px;
@@ -310,32 +292,36 @@
             align-items: center;
             justify-content: center;
             font-family: 'Bungee', cursive;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             transform: rotate(-15deg);
-            box-shadow: 10px 10px 0 rgba(0,0,0,0.2);
+            box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.2);
         }
 
         .polaroid {
-            bottom: 15%;
-            right: 8%;
-            width: 200px;
+            bottom: 10%;
+            right: 5%;
+            width: 150px;
             background: white;
-            padding: 15px;
-            padding-bottom: 50px;
-            box-shadow: 15px 15px 30px rgba(0,0,0,0.3);
+            padding: 10px;
+            padding-bottom: 35px;
+            box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.3);
             transform: rotate(8deg);
         }
 
         .polaroid-img {
             width: 100%;
-            height: 150px;
-            background: linear-gradient(135deg, var(--orange), var(--maroon));
+            height: 120px;
+            background-image: url('https://i.pinimg.com/736x/75/eb/60/75eb6050a664137fa8ed1d799b1d97e8.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .dog {
-            bottom: 5%;
-            right: 25%;
-            font-size: 8rem;
+            bottom: 8%;
+            right: 20%;
+            font-size: 6rem;
+            opacity: 0.8;
             animation: dogWag 2s infinite;
         }
 
@@ -353,16 +339,17 @@
             position: relative;
             z-index: 2;
             text-align: center;
-            max-width: 1200px;
+            max-width: 900px;
+            margin-top: -3vh;
         }
 
         .hero h1 {
             font-family: 'Bungee', cursive;
-            font-size: clamp(3rem, 12vw, 10rem);
+            font-size: clamp(2.5rem, 8vw, 7rem);
             color: var(--yellow);
-            text-shadow: 8px 8px 0 var(--dark), 12px 12px 20px rgba(0,0,0,0.5);
-            line-height: 0.9;
-            margin-bottom: 1rem;
+            text-shadow: 8px 8px 0 var(--dark), 12px 12px 20px rgba(0, 0, 0, 0.5);
+            line-height: 0.85;
+            margin-bottom: 0.3rem;
             animation: titleBounce 2s ease infinite;
         }
 
@@ -373,9 +360,10 @@
 
         .hero h2 {
             font-family: 'Bungee', cursive;
-            font-size: clamp(2rem, 8vw, 6rem);
+            font-size: clamp(1.5rem, 6vw, 4rem);
             color: white;
             text-shadow: 5px 5px 0 var(--dark);
+            margin-bottom: 0.8rem;
             animation: subtitleSlide 3s ease infinite alternate;
         }
 
@@ -385,13 +373,13 @@
         }
 
         .hero-subtitle {
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             color: var(--dark);
-            margin-top: 2rem;
+            margin-top: 1.2rem;
             font-weight: 700;
             background: var(--yellow);
             display: inline-block;
-            padding: 1rem 2rem;
+            padding: 0.7rem 1.8rem;
             border-radius: 50px;
             box-shadow: 5px 5px 0 var(--dark);
             animation: subtitleFloat 3s ease infinite;
@@ -402,10 +390,9 @@
             50% { transform: translateY(-10px) rotate(-2deg); }
         }
 
-        /* SCROLL INDICATOR MEGA LEGAL */
         .scroll-indicator {
             position: absolute;
-            bottom: 50px;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
             animation: bounce 2s infinite;
@@ -414,13 +401,13 @@
         .scroll-text {
             font-family: 'Righteous', cursive;
             color: var(--dark);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
             text-shadow: 2px 2px 0 var(--yellow);
         }
 
         .scroll-arrow {
-            font-size: 3rem;
+            font-size: 2rem;
             animation: arrowBounce 1s infinite;
         }
 
@@ -429,7 +416,7 @@
             50% { transform: translateY(20px); }
         }
 
-        /* ABOUT SECTION SUPER ESTILOSA */
+        /* ABOUT SECTION - ✅ FOTO AJUSTADA */
         .about {
             min-height: 100vh;
             padding: 100px 5%;
@@ -474,6 +461,7 @@
             position: relative;
         }
 
+        /* ✅ CORREÇÃO DA FOTO - AGORA VAI AJUSTAR PERFEITAMENTE */
         .about-image {
             width: 100%;
             max-width: 500px;
@@ -481,15 +469,18 @@
             border-radius: 50%;
             overflow: hidden;
             border: 15px solid var(--yellow);
-            box-shadow: 20px 20px 0 var(--dark), 25px 25px 40px rgba(0,0,0,0.3);
+            box-shadow: 20px 20px 0 var(--dark), 25px 25px 40px rgba(0, 0, 0, 0.3);
             transition: all 0.5s;
             background: linear-gradient(135deg, var(--orange), var(--maroon));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-            font-weight: 900;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
         }
 
         .about-image:hover {
@@ -537,7 +528,7 @@
             line-height: 1.8;
             margin-bottom: 1.5rem;
             color: var(--dark);
-            background: rgba(255,255,255,0.5);
+            background: rgba(255, 255, 255, 0.5);
             padding: 1rem;
             border-radius: 15px;
             border-left: 5px solid var(--yellow);
@@ -565,10 +556,80 @@
             background: var(--yellow);
             color: var(--dark);
             transform: translateY(-5px);
-            box-shadow: 8px 8px 0 var(--maroon), 10px 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 8px 8px 0 var(--maroon), 10px 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        /* PROJECTS SECTION MEGA ELABORADA */
+        /* SHOWCASE */
+        .portfolio-showcase {
+            min-height: 100vh;
+            padding: 100px 5%;
+            background: var(--yellow);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .portfolio-showcase::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: var(--turquoise);
+            transform: skewY(-3deg);
+        }
+
+        .showcase-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .showcase-content h2 {
+            font-family: 'Bungee', cursive;
+            font-size: clamp(3rem, 6vw, 5rem);
+            color: var(--dark);
+            margin-bottom: 2rem;
+            text-shadow: 5px 5px 0 var(--turquoise);
+        }
+
+        .showcase-content p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--dark);
+            background: rgba(255, 255, 255, 0.7);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--dark);
+        }
+
+        .showcase-image-wrapper {
+            position: relative;
+        }
+
+        .showcase-illustration {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
+            box-shadow: 20px 20px 0 var(--dark), 25px 25px 40px rgba(0, 0, 0, 0.3);
+            border: 8px solid var(--dark);
+            transition: all 0.5s;
+        }
+
+        .showcase-illustration:hover {
+            transform: scale(1.05) rotate(-2deg);
+        }
+
+        /* PROJECTS */
         .projects {
             min-height: 100vh;
             padding: 100px 5%;
@@ -649,7 +710,7 @@
 
         .project-card:hover {
             transform: translateY(-20px) rotate(-2deg);
-            box-shadow: 15px 15px 0 var(--maroon), 20px 20px 40px rgba(0,0,0,0.3);
+            box-shadow: 15px 15px 0 var(--maroon), 20px 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .project-image {
@@ -699,7 +760,7 @@
             color: #555;
         }
 
-        /* MODAL SUPER ELABORADO */
+        /* MODAL */
         .modal {
             display: none;
             position: fixed;
@@ -733,19 +794,13 @@
             overflow-y: auto;
             position: relative;
             border: 8px solid var(--yellow);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
             animation: modalZoom 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         @keyframes modalZoom {
-            from {
-                transform: scale(0.7) rotate(-5deg);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1) rotate(0deg);
-                opacity: 1;
-            }
+            from { transform: scale(0.7) rotate(-5deg); opacity: 0; }
+            to { transform: scale(1) rotate(0deg); opacity: 1; }
         }
 
         .modal-close {
@@ -763,7 +818,7 @@
             z-index: 10;
             transition: all 0.3s;
             font-weight: bold;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
         .modal-close:hover {
@@ -812,7 +867,7 @@
             font-size: 1.1rem;
         }
 
-        /* EXPERIENCE SECTION */
+        /* EXPERIENCE */
         .experience {
             min-height: 100vh;
             padding: 100px 5%;
@@ -905,11 +960,11 @@
             line-height: 1.7;
         }
 
-        /* CONTACT SECTION MEGA ELABORADA */
+        /* ===== CONTACT - FOTO GRANDE À ESQUERDA ===== */
         .contact {
             min-height: 100vh;
             padding: 100px 5%;
-            background: var(--dark);
+            background: var(--turquoise);
             position: relative;
             overflow: hidden;
         }
@@ -921,9 +976,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(78, 205, 196, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(255, 230, 109, 0.2) 0%, transparent 50%);
+            background:
+                radial-gradient(circle at 20% 30%, rgba(255, 230, 109, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(139, 30, 63, 0.2) 0%, transparent 50%);
             animation: bgPulse 10s ease infinite;
         }
 
@@ -932,25 +987,41 @@
             50% { opacity: 1; }
         }
 
-        .contact h2 {
-            font-family: 'Bungee', cursive;
-            font-size: clamp(3rem, 8vw, 6rem);
-            color: var(--yellow);
+        .contact-header {
             text-align: center;
-            margin-bottom: 1rem;
-            text-shadow: 5px 5px 0 var(--turquoise);
+            margin-bottom: 5rem;
             position: relative;
             z-index: 2;
         }
 
+        .contact h2 {
+            font-family: 'Bungee', cursive;
+            font-size: clamp(3rem, 8vw, 6rem);
+            color: var(--yellow);
+            margin-bottom: 1rem;
+            text-shadow: 5px 5px 0 var(--dark);
+        }
+
         .contact-subtitle {
-            text-align: center;
-            color: var(--turquoise);
+            color: var(--dark);
             font-size: 1.5rem;
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
             font-weight: 700;
-            position: relative;
-            z-index: 2;
+        }
+
+        .contact-cta {
+            font-size: clamp(2rem, 5vw, 4rem);
+            color: var(--dark);
+            font-family: 'Bungee', cursive;
+            text-shadow: 3px 3px 0 var(--yellow);
+        }
+
+        .contact-cta .highlight-yellow {
+            color: var(--yellow);
+        }
+
+        .contact-cta .highlight-orange {
+            color: var(--orange);
         }
 
         .contact-container {
@@ -958,40 +1029,62 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 5rem;
             position: relative;
             z-index: 2;
+            align-items: start;
+        }
+
+        /* FOTO GRANDE À ESQUERDA */
+        .contact-hero-photo {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 30px;
+            box-shadow: 20px 20px 0 var(--yellow), 25px 25px 40px rgba(0, 0, 0, 0.3);
+            border: 10px solid var(--dark);
+            transition: all 0.5s;
+        }
+
+        .contact-hero-photo:hover {
+            transform: scale(1.02);
+        }
+
+        /* CONTEÚDO À DIREITA */
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
 
         .contact-form {
             background: white;
-            padding: 3rem;
+            padding: 2.5rem;
             border-radius: 30px;
             border: 5px solid var(--yellow);
-            box-shadow: 15px 15px 0 var(--turquoise);
+            box-shadow: 15px 15px 0 var(--dark);
         }
 
         .form-group {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
             color: var(--dark);
             font-weight: 900;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-family: 'Righteous', cursive;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 18px;
+            padding: 15px;
             border: 4px solid var(--turquoise);
             border-radius: 15px;
             font-family: 'Poppins', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: all 0.3s;
             background: var(--cream);
         }
@@ -1006,18 +1099,18 @@
 
         .form-group textarea {
             resize: vertical;
-            min-height: 180px;
+            min-height: 120px;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 20px;
+            padding: 15px;
             background: var(--dark);
             color: var(--yellow);
             border: none;
             border-radius: 15px;
             font-weight: 900;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s;
             text-transform: uppercase;
@@ -1027,94 +1120,106 @@
         }
 
         .submit-btn:hover {
-            background: var(--turquoise);
+            background: var(--yellow);
             color: var(--dark);
             transform: translateY(-5px);
             box-shadow: 8px 8px 0 var(--orange);
         }
 
-        .contact-info {
-            color: white;
+        .contact-info-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 30px;
+            border: 5px solid var(--dark);
+            box-shadow: 10px 10px 0 var(--yellow);
         }
 
-        .contact-info h3 {
+        .contact-info-section h3 {
             font-family: 'Bungee', cursive;
-            font-size: 2.5rem;
-            color: var(--yellow);
-            margin-bottom: 2rem;
-            text-shadow: 3px 3px 0 var(--turquoise);
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 0 var(--yellow);
+        }
+
+        .contact-info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .contact-item {
-            margin-bottom: 2rem;
             display: flex;
             align-items: center;
-            gap: 1.5rem;
-            background: rgba(255,255,255,0.1);
-            padding: 1.5rem;
+            gap: 1rem;
+            background: var(--cream);
+            padding: 1rem;
             border-radius: 15px;
             border: 3px solid var(--turquoise);
             transition: all 0.3s;
         }
 
         .contact-item:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateX(10px);
+            transform: translateX(5px);
+            border-color: var(--orange);
         }
 
         .contact-item svg {
-            width: 40px;
-            height: 40px;
-            fill: var(--yellow);
+            width: 30px;
+            height: 30px;
+            fill: var(--dark);
+            flex-shrink: 0;
         }
 
-        .contact-item a {
-            color: white;
+        .contact-item a,
+        .contact-item span {
+            color: var(--dark);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             transition: color 0.3s;
         }
 
         .contact-item a:hover {
-            color: var(--yellow);
+            color: var(--maroon);
         }
 
         .social-links {
             display: flex;
-            gap: 1.5rem;
-            margin-top: 3rem;
+            gap: 1rem;
+            justify-content: center;
         }
 
         .social-links a {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             background: var(--yellow);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s;
-            border: 4px solid var(--turquoise);
-            box-shadow: 5px 5px 0 var(--turquoise);
+            border: 4px solid var(--dark);
+            box-shadow: 5px 5px 0 var(--dark);
         }
 
         .social-links a:hover {
             background: var(--orange);
             transform: translateY(-10px) rotate(360deg);
-            box-shadow: 8px 8px 0 var(--yellow);
+            box-shadow: 8px 8px 0 var(--maroon);
         }
 
         .social-links svg {
-            width: 35px;
-            height: 35px;
+            width: 30px;
+            height: 30px;
             fill: var(--dark);
         }
 
         /* FOOTER */
         footer {
-            background: var(--turquoise);
-            color: var(--dark);
+            background: var(--dark);
+            color: var(--yellow);
             text-align: center;
             padding: 3rem;
             font-weight: 700;
@@ -1128,6 +1233,7 @@
         /* RESPONSIVE */
         @media (max-width: 968px) {
             .about-content,
+            .showcase-container,
             .contact-container {
                 grid-template-columns: 1fr;
                 gap: 3rem;
@@ -1135,10 +1241,6 @@
 
             .projects-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .decoration {
-                display: none;
             }
 
             nav ul {
@@ -1156,9 +1258,21 @@
             .hero h2 {
                 font-size: 2rem;
             }
+
+            .showcase-illustration,
+            .contact-hero-photo {
+                max-width: 100%;
+            }
         }
 
-        /* ANIMAÇÕES EXTRAS */
+        @media (max-width: 768px) {
+            .stamp, 
+            .polaroid, 
+            .dog {
+                display: none;
+            }
+        }
+
         @keyframes wiggle {
             0%, 100% { transform: rotate(-3deg); }
             50% { transform: rotate(3deg); }
@@ -1169,6 +1283,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- FLOATING ELEMENTS -->
     <div class="floating-element star">✨</div>
@@ -1188,6 +1303,7 @@
         <ul>
             <li><a href="#home">Início</a></li>
             <li><a href="#about">Sobre</a></li>
+            <li><a href="#showcase">Portfólio</a></li>
             <li><a href="#projects">Projetos</a></li>
             <li><a href="#experience">Experiência</a></li>
             <li><a href="#contact">Contato</a></li>
@@ -1200,22 +1316,16 @@
     <!-- HERO SECTION -->
     <section id="home" class="hero">
         <div class="hero-bg"></div>
-        
-        <!-- DECORATIVE ELEMENTS -->
-        <div class="decoration stamp">
-            MADE IN<br>BRAZIL
-        </div>
+        <div class="decoration stamp">MADE IN<br>BRAZIL</div>
         <div class="decoration polaroid">
             <div class="polaroid-img"></div>
         </div>
-        <div class="decoration dog">🐕</div>
-        
+        <img src="https://media-public.canva.com/vHt5o/MAFvmRvHt5o/1/t.png" class="decoration dog" alt="Cachorro">
         <div class="hero-content">
             <h1 class="wiggle">PORTFÓLIO</h1>
             <h2>CRIATIVO</h2>
             <p class="hero-subtitle">IASMIM SANTIAGO</p>
         </div>
-        
         <div class="scroll-indicator">
             <div class="scroll-text">Role para baixo</div>
             <div class="scroll-arrow">↓</div>
@@ -1225,15 +1335,13 @@
     <!-- ABOUT SECTION -->
     <section id="about" class="about">
         <div class="wave-decoration"></div>
-        
         <div class="about-content">
             <div class="about-image-wrapper">
                 <div class="about-image">
-                    👤
+                    <img src="https://raw.githubusercontent.com/iasxzz/portifolio/refs/heads/main/Gemini_Generated_Image_ojou5mojou5mojou%20(1).png" alt="Iasmim Santiago">
                 </div>
                 <div class="sparkles">✨</div>
             </div>
-            
             <div class="about-text">
                 <h2>Olá,</h2>
                 <h3>Meu nome é <span>Iasmim Santiago</span></h3>
@@ -1245,11 +1353,25 @@
         </div>
     </section>
 
+    <!-- SHOWCASE -->
+    <section id="showcase" class="portfolio-showcase">
+        <div class="showcase-container">
+            <div class="showcase-content">
+                <h2>Design que Conta Histórias</h2>
+                <p><strong>Cada projeto é uma jornada única.</strong> Combino pesquisa, estratégia e criatividade para criar identidades visuais que conectam marcas com pessoas de forma autêntica e memorável.</p>
+                <p>Do conceito à execução, desenvolvo soluções visuais que <strong>funcionam no mundo real</strong> — seja em embalagens, redes sociais ou materiais impressos.</p>
+            </div>
+            <div class="showcase-image-wrapper">
+                <img src="https://raw.githubusercontent.com/iasxzz/portifolio/refs/heads/main/3.png" alt="Ilustração de design" class="showcase-illustration">
+            </div>
+        </div>
+    </section>
+
     <!-- PROJECTS SECTION -->
     <section id="projects" class="projects">
         <h2>Meus Projetos</h2>
         <p class="projects-subtitle">De pixels a <strong>projetos reais</strong> ✨</p>
-        
+
         <div class="filter-buttons">
             <button class="filter-btn active clickable" data-filter="all">Todos</button>
             <button class="filter-btn clickable" data-filter="branding">Branding</button>
@@ -1258,7 +1380,6 @@
         </div>
 
         <div class="projects-grid">
-            <!-- NATTIVA PROJECT -->
             <div class="project-card clickable" data-category="branding identity" onclick="openModal('nattiva')">
                 <div class="project-image">🥜</div>
                 <div class="project-info">
@@ -1268,7 +1389,6 @@
                 </div>
             </div>
 
-            <!-- IS PROJECT -->
             <div class="project-card clickable" data-category="branding identity" onclick="openModal('is')">
                 <div class="project-image" style="background: linear-gradient(135deg, #4ECDC4, #006064);">💻</div>
                 <div class="project-info">
@@ -1278,7 +1398,6 @@
                 </div>
             </div>
 
-            <!-- PET GLOW PROJECT -->
             <div class="project-card clickable" data-category="branding identity" onclick="openModal('petglow')">
                 <div class="project-image" style="background: linear-gradient(135deg, #4ECDC4, #88C540);">🐶</div>
                 <div class="project-info">
@@ -1288,7 +1407,6 @@
                 </div>
             </div>
 
-            <!-- SOCIAL MEDIA FITNESS -->
             <div class="project-card clickable" data-category="social" onclick="openModal('fitness')">
                 <div class="project-image" style="background: linear-gradient(135deg, #8B1E3F, #000);">💪</div>
                 <div class="project-info">
@@ -1298,7 +1416,6 @@
                 </div>
             </div>
 
-            <!-- SOCIAL MEDIA FOOD -->
             <div class="project-card clickable" data-category="social" onclick="openModal('food')">
                 <div class="project-image" style="background: linear-gradient(135deg, #88C540, #4ECDC4);">🍔</div>
                 <div class="project-info">
@@ -1308,7 +1425,6 @@
                 </div>
             </div>
 
-            <!-- MORE PROJECTS PLACEHOLDER -->
             <div class="project-card clickable" data-category="branding" onclick="openModal('outros')">
                 <div class="project-image" style="background: linear-gradient(135deg, #FFE66D, #FF6B35);">🎨</div>
                 <div class="project-info">
@@ -1364,7 +1480,7 @@
         <div style="text-align: center; margin-top: 5rem; color: white;">
             <h3 style="font-family: 'Bungee'; font-size: 2.5rem; color: var(--yellow); margin-bottom: 1.5rem; text-shadow: 3px 3px 0 var(--dark);">Formação 📚</h3>
             <p style="font-size: 1.3rem; background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 20px; display: inline-block; border: 3px solid var(--turquoise);"><strong>Análise e Desenvolvimento de Sistemas</strong><br>Uninter (em andamento)</p>
-            
+
             <div style="margin-top: 3rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
                 <div style="background: var(--turquoise); color: var(--dark); padding: 1.5rem 2rem; border-radius: 15px; font-weight: 700; border: 3px solid var(--dark);">
                     🎨 Design: +10 anos
@@ -1379,55 +1495,77 @@
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- CONTACT - FOTO GRANDE À ESQUERDA -->
     <section id="contact" class="contact">
-        <h2>Obrigada! 🎉</h2>
-        <p class="contact-subtitle">por chegar até aqui</p>
-        <h2 style="margin-top: 2rem; font-size: clamp(2rem, 5vw, 4rem);">
-            Vamos <span style="color: var(--turquoise);">criar</span> algo <span style="color: var(--orange);">juntos?</span>
-        </h2>
+        <div class="contact-header">
+            <h2>Obrigada! 🎉</h2>
+            <p class="contact-subtitle">por chegar até aqui</p>
+            <p class="contact-cta">
+                Vamos <span class="highlight-yellow">criar</span> algo <span class="highlight-orange">juntos?</span>
+            </p>
+        </div>
 
         <div class="contact-container">
-            <form class="contact-form" id="contact-form">
-                <div class="form-group">
-                    <label for="name">📝 Nome</label>
-                    <input type="text" id="name" name="name" required placeholder="Seu nome...">
-                </div>
-                <div class="form-group">
-                    <label for="email">📧 E-mail</label>
-                    <input type="email" id="email" name="email" required placeholder="seu@email.com">
-                </div>
-                <div class="form-group">
-                    <label for="message">💬 Mensagem</label>
-                    <textarea id="message" name="message" required placeholder="Conte sua ideia..."></textarea>
-                </div>
-                <button type="submit" class="submit-btn clickable">Enviar Mensagem 🚀</button>
-            </form>
+            <!-- FOTO GRANDE À ESQUERDA -->
+            <div>
+                <img src="https://github.com/iasxzz/portifolio/blob/main/iasssss.png?raw=true" alt="Iasmim Santiago" class="contact-hero-photo">
+            </div>
 
-            <div class="contact-info">
-                <h3>Contato Direto</h3>
-                
-                <div class="contact-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    <a href="mailto:is.graficodesign@gmail.com">is.graficodesign@gmail.com</a>
+            <!-- CONTEÚDO À DIREITA -->
+            <div class="contact-info-section">
+                    <h3>Contato Direto</h3>
+                    <div class="contact-info-cards">
+                        <div class="contact-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
+                            </svg>
+                            <a href="mailto:is.graficodesign@gmail.com">is.graficodesign@gmail.com</a>
+                        </div>
+
+                        <div class="contact-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
+                            </svg>
+                            <span><strong>Behance:</strong> iassantiago1</span>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://www.behance.net/iassantiago1" target="_blank" rel="noopener" class="clickable" aria-label="Behance">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14h-8.027c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-14.967h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zm-3.466-8.988h3.584c2.508 0 2.906-3-.312-3h-3.272v3zm3.391 3h-3.391v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"></path>
+                            </svg>
+                        </a>
+                        <a href="mailto:is.graficodesign@gmail.com" class="clickable" aria-label="Email">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
 
-                <div class="contact-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    <span><strong>Behance:</strong> iassantiago1</span>
-                </div>
-
-                <div class="social-links">
-                    <a href="https://www.behance.net/iassantiago1" target="_blank" rel="noopener" class="clickable" aria-label="Behance">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14h-8.027c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-14.967h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zm-3.466-8.988h3.584c2.508 0 2.906-3-.312-3h-3.272v3zm3.391 3h-3.391v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"/></svg>
-                    </a>
-                    <a href="mailto:is.graficodesign@gmail.com" class="clickable" aria-label="Email">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    </a>
-                </div>
+                 
             </div>
         </div>
     </section>
+            <div class="contact-content">
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">📝 Nome</label>
+                        <input type="text" id="name" name="name" required placeholder="Seu nome...">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">📧 E-mail</label>
+                        <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">💬 Mensagem</label>
+                        <textarea id="message" name="message" required placeholder="Conte sua ideia..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn clickable">Enviar 🚀</button>
+                </form>
+
+         
 
     <!-- FOOTER -->
     <footer>
@@ -1443,14 +1581,12 @@
             }, 2500);
         });
 
-        // NAVBAR SCROLL COM ANIMAÇÃO
+        // NAVBAR SCROLL
         const navbar = document.getElementById('navbar');
         const backToTop = document.getElementById('back-to-top');
-        let lastScroll = 0;
 
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
-
             if (currentScroll > 100) {
                 navbar.classList.add('visible');
                 backToTop.classList.add('visible');
@@ -1458,16 +1594,11 @@
                 navbar.classList.remove('visible');
                 backToTop.classList.remove('visible');
             }
-
-            lastScroll = currentScroll;
         });
 
         // BACK TO TOP
         backToTop.addEventListener('click', () => {
-            window.scrollTo({ 
-                top: 0, 
-                behavior: 'smooth' 
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
         // PROJECT FILTERS
@@ -1477,7 +1608,6 @@
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const filter = button.dataset.filter;
-
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
 
@@ -1499,7 +1629,6 @@
 
         // MODAL SYSTEM
         const modal = document.getElementById('project-modal');
-        
         const projectData = {
             'nattiva': {
                 emoji: '🥜',
@@ -1553,14 +1682,12 @@
 
         function openModal(projectId) {
             const project = projectData[projectId];
-            
             document.getElementById('modal-img').textContent = project.emoji;
             document.getElementById('modal-img').style.background = project.gradient;
             document.getElementById('modal-title').textContent = project.title;
             document.getElementById('modal-description').textContent = project.description;
             document.getElementById('modal-process').textContent = project.process;
             document.getElementById('modal-result').textContent = project.result;
-
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -1583,29 +1710,22 @@
         // FORM SUBMISSION
         document.getElementById('contact-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
-
             const mailtoLink = `mailto:is.graficodesign@gmail.com?subject=Contato de ${encodeURIComponent(name)}&body=${encodeURIComponent(message)}%0A%0ADe: ${encodeURIComponent(email)}`;
             window.location.href = mailtoLink;
-
             alert(`Obrigada, ${name}! 🎉 Vou abrir seu cliente de email para enviar a mensagem.`);
-            
             e.target.reset();
         });
 
         // SMOOTH SCROLL
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ 
-                        behavior: 'smooth', 
-                        block: 'start' 
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
@@ -1640,11 +1760,12 @@
                 setTimeout(() => {
                     dog.style.animation = 'dogWag 2s infinite, spin 1s ease';
                 }, 10);
-                alert('🐕 AU AU! Você encontrou o cachorrinho escondido! 🎉');
+                alert('O Brasil me obriga a beber!');
             });
         }
 
         console.log('%c✨ Portfólio criado com amor e muito código! 🎨', 'font-size: 20px; color: #FFE66D; background: #4ECDC4; padding: 10px; border-radius: 5px;');
     </script>
 </body>
+
 </html>
